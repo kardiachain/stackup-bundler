@@ -1,0 +1,16 @@
+version: "3"
+services:
+  bundler:
+    build:
+      context: .
+    image: kardiachain/stackup-bundler
+    container_name: "stackup-bundler"
+    ports:
+      - 4337:4337  
+    restart: always
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: 300m
