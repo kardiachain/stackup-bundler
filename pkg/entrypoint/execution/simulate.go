@@ -51,8 +51,8 @@ func SimulateHandleOp(in *SimulateInput) (*reverts.ExecutionResultRevert, error)
 		To:   in.EntryPoint,
 		Data: tx.Data(),
 	}
-	// err = in.Rpc.CallContext(context.Background(), nil, "eth_call", &req, "latest", in.Sos)
-	err = in.Rpc.CallContext(context.Background(), nil, "eth_call", &req, "latest")
+	err = in.Rpc.CallContext(context.Background(), nil, "eth_call", &req, "latest", in.Sos)
+	//err = in.Rpc.CallContext(context.Background(), nil, "eth_call", &req, "latest")
 
 	sim, simErr := reverts.NewExecutionResult(err)
 	if simErr != nil {
